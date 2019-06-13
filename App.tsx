@@ -1,12 +1,42 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
-  );
+const hardCoded = [
+  'Gotta learn stuff through denial and error',
+  'And why do you look like Indianapolis Jones?',
+  'I feel like my brain is short circulating',
+  'A link is only as long as your longest strong chain',
+  'Beauty is in the eye when you hold her',
+  'Don\'t judge a cover of a book by its look',
+  'Friends with benedict'
+];
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      result: ''
+    };
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>Rickyism Generator</Text>
+        <Button
+          onPress={this.generate}
+          title="Generate!"
+        />
+        <Text>{this.state.result || ""}</Text>
+      </View>
+    );
+  }
+
+  generate = () => {
+    const index = Math.floor((Math.random() * 7));
+    this.setState({ result: hardCoded[index] })
+  }
 }
 
 const styles = StyleSheet.create({
