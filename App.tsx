@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, Image, StyleSheet, Text, View } from 'react-native';
 
 const hardCoded = [
   'Gotta learn stuff through denial and error',
@@ -16,19 +16,23 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      result: ''
+      result: hardCoded[0]
     };
   }
 
   render() {
+    const { result } = this.state;
+
     return (
       <View style={styles.container}>
-        <Text>Rickyism Generator</Text>
+        <Text style={styles.title}>Rickyism Generator</Text>
+        <Image style={styles.image} source={require('./img/main.jpg')} />
         <Button
-          onPress={this.generate}
+          color="green"
           title="Generate!"
+          onPress={this.generate}
         />
-        <Text>{this.state.result || ""}</Text>
+        <Text style={styles.quote}>{result ? `"${result}"` : ''}</Text>
       </View>
     );
   }
@@ -42,8 +46,25 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#fff',
+    justifyContent: 'space-around',
+    padding: 20
   },
+  image: {
+    borderRadius: 300,
+    height: 300,
+    width: 300
+  },
+  quote: {
+    color: '#ccc',
+    fontSize: 24,
+    fontStyle: 'italic',
+    textAlign: 'center'
+  },
+  title: {
+    fontSize: 48,
+    fontWeight: '200',
+    textAlign: 'center'
+  }
 });
