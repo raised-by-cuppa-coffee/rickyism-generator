@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Image, StyleSheet, Text, View } from 'react-native';
+import { Animated, Button, Image, StyleSheet, Text, View } from 'react-native';
 
 const hardCoded = [
   'Gotta learn stuff through denial and error',
@@ -12,16 +12,18 @@ const hardCoded = [
 ];
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      result: hardCoded[0]
-    };
+  state = {
+    quoteAnim: new Animated.Value(0),
+    result: hardCoded[0]
   }
 
   render() {
-    const { result } = this.state;
+    const { quoteAnim, result } = this.state;
+
+    Animated.timing(this.state.quoteAnim, {
+      toValue: 1,
+      duration: 3000
+    }).start();
 
     return (
       <View style={styles.container}>
@@ -32,14 +34,17 @@ export default class App extends Component {
           title="Generate!"
           onPress={this.generate}
         />
-        <Text style={styles.quote}>{result ? `"${result}"` : ''}</Text>
+        <Animated.Text style={{ ...styles.quote, opacity: quoteAnim }}>{result ? `"${result}"` : ''}</Animated.Text>
       </View>
     );
   }
 
   generate = () => {
     const index = Math.floor((Math.random() * 7));
-    this.setState({ result: hardCoded[index] })
+    this.setState({
+      quoteAnim: new Animated.Value(0),
+      result: hardCoded[index]
+    });
   }
 }
 
@@ -63,6 +68,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   title: {
+    color: '#666',
     fontSize: 48,
     fontWeight: '200',
     textAlign: 'center'
