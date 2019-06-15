@@ -1,0 +1,14 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "rickyism-generator-dev-20190615123919-authRole",
+            "UnauthRoleArn": "arn:aws:iam::106553238186:role/rickyism-generator-dev-20190615123919-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::106553238186:role/rickyism-generator-dev-20190615123919-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "rickyism-generator-dev-20190615123919-deployment",
+            "UnauthRoleName": "rickyism-generator-dev-20190615123919-unauthRole",
+            "StackName": "rickyism-generator-dev-20190615123919",
+            "StackId": "arn:aws:cloudformation:us-east-1:106553238186:stack/rickyism-generator-dev-20190615123919/36f8e900-8f62-11e9-9ec8-0a82639e0346"
+        }
+    }
+}
