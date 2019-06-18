@@ -1,5 +1,7 @@
 {
   "main": "node_modules/expo/AppEntry.js",
+  "description": "The premier mobile app for handling your Rickyism needs!",
+  "version": "0.0.1",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -8,17 +10,26 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "expo": "^33.0.0",
-    "react": "16.8.3",
-    "react-dom": "^16.8.6",
+    "expo": "33.0.5",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
-    "react-native-web": "^0.11.4"
+    "react-native-web": "0.11.4"
   },
   "devDependencies": {
-    "@types/react": "^16.8.19",
-    "@types/react-native": "^0.57.60",
-    "babel-preset-expo": "^5.1.1",
-    "typescript": "^3.4.5"
+    "@types/react": "16.8.19",
+    "@types/react-native": "0.57.60",
+    "babel-preset-expo": "5.2.0",
+    "typescript": "3.5.2"
   },
-  "private": true
+  "private": true,
+  "author": {
+    "name": "Adam Gribble",
+    "email": "only-one@adamgribble.com",
+    "url": "https://www.adamgribble.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raised-by-cuppa-coffee/rickyism-generator"
+  }
 }
